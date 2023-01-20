@@ -9,16 +9,22 @@
             <th>Nom</th>
             <th>Prix</th>
             <th>Delete</th>
+            <th>Reduction</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let p of products">
             <td>{{ p.id }}</td>
             <td>{{ p.nom }}</td>
-            <td>{{ p.Prix }}</td>
+            <td>{{ p.prix }}</td>
             <td>
               <button (click)="handleDeleteProduct(p)" class="btn btn-danger">
                 <i class="bi bi-trash"></i>
+              </button>
+            </td>
+            <td>
+              <button (click)="handleReductionProduct(p)" class="btn btn-info">
+                <i class="bi bi-pen"></i>
               </button>
             </td>
           </tr>
