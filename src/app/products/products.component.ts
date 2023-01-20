@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductsService} from "../services/products.service";
-import {Observable} from "rxjs";
 
 @Component({
     selector: 'app-products',
@@ -27,4 +26,9 @@ export class ProductsComponent implements OnInit {
     handleReductionProduct(p: any) {
         this.service.handleReductionProduct(p);
     }
+
+    ajouterAuPanier(p: any) {
+        this.service.ajouterAuPanier(p);
+    }
+
 }

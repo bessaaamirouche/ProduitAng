@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="card">
+        <div class="card-header">Products List</div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Prix</th>
+                    <th>Delete</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let p of productsPanier">
+                    <td>{{ p.id }}</td>
+                    <td>{{ p.nom }}</td>
+                    <td>{{ p.prix }}</td>
+                    <td>
+                        <button (click)="handleDeleteProduct(p)" class="btn btn-danger">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr> Somme :{{somme}}
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -6,7 +6,9 @@ import { Observable, of } from 'rxjs';
 })
 export class ProductsService {
  private products!: Array<any>;
-  constructor() { 
+ private productsPanier!: Array<any>;
+    private sommme:number = 0;
+    constructor() {
     this.products= [
       {id:1, nom : "PC", prix : 1000},
       {id:2, nom : "MacBook", prix : 1500},
@@ -16,6 +18,7 @@ export class ProductsService {
       {id:6, nom : "MacM2", prix : 2000},
       {id:6, nom : "MacM2", prix : 2000},
     ];
+        this.productsPanier=[];
   }
 
   public getAllProducts() : Array<any>{
@@ -31,4 +34,23 @@ export class ProductsService {
             p.prix = 0.5*p.prix
         }
 
+    public getAllProductsPanier() : Array<any>{
+        return this.productsPanier;
+    }
+
+    ajouterAuPanier(p: any) {
+        this.productsPanier.push(p)
+        this.sommme = this.sommme + p.prix
+
+    }
+
+    handleDeleteProductPanier(p: any) {
+        let index = this.productsPanier.indexOf(p);
+        this.sommme = this.sommme - p.prix
+        this.productsPanier.splice(index,1)
+    }
+
+    getSommePanier(){
+        return this.sommme;
+    }
 }
