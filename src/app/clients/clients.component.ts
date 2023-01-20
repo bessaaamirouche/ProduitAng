@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./clients.component.scss']
 })
 export class ClientsComponent {
+  show: boolean= false; 
+  toggle(){ this.show = !this.show; }
+
+  
+  montreToi(ici: HTMLElement){
+    ici.style.backgroundColor = "red"
+    ici.style.color= "black"
+}
 
 }
